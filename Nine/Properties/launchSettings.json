@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nine": {
+      "commandName": "Project",
+      "commandLineArgs": "VisualAcademy"
+    }
+  }
+}
