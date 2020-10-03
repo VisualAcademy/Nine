@@ -39,6 +39,7 @@ var membershipDescription = membership switch
     Visual and { Title: "VIP" } => "VIP Membership", //[4] Property Pattern
     Visual and (_, 1, true) => "Welcome VIP", //[3] Positional Pattern
     not Visual => "No Problem", //[2] Type Pattern + not 
+
     _ => "No Membership" //[1] Discard == Default Case
 };
 System.Console.WriteLine(membershipDescription);
@@ -54,18 +55,18 @@ class Sponsor
 //    public string Title { get; init; }
 //    public int Duration { get; init; }
 //}
-record Subscriber(string Title, int Duration, bool IsAvariable); // Syntax Sugar
-record Visual(string Title, int Duration, bool IsAvariable)
-    : Subscriber(Title, Duration, IsAvariable);
+record Subscriber(string Title, int Duration, bool IsAvailable); // Syntax Sugar
+record Visual(string Title, int Duration, bool IsAvailable)
+    : Subscriber(Title, Duration, IsAvailable);
 record Studio : Subscriber
 {
-    public Studio(string Title, int Duration, bool IsAvariable) :
-        base(Title, Duration, IsAvariable)
+    public Studio(string Title, int Duration, bool IsAvailable) :
+        base(Title, Duration, IsAvailable)
     { }
 }
 record Code : Subscriber
 {
-    public Code(string Title, int Duration, bool IsAvariable) :
-        base(Title, Duration, IsAvariable)
+    public Code(string Title, int Duration, bool IsAvailable) :
+        base(Title, Duration, IsAvailable)
     { }
 }
